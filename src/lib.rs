@@ -1,13 +1,15 @@
 #![recursion_limit="1024"]
-mod nav_bar;
+
+mod routes;
+mod components;
+
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
-
-use nav_bar::NavBar;
+use crate::components::root::Root;
 
 #[wasm_bindgen(start)]
 pub fn run_app() {
-    App::<NavBar>::new().mount_to_body();
+    App::<Root>::new().mount_to_body();
 }
 
 #[cfg(test)]
