@@ -3,6 +3,7 @@ use crate::routes::{AppRoute, AppRouter};
 use yew::prelude::*;
 use yew_router::{route::Route, switch::Permissive};
 use crate::components::nav_bar::NavBar;
+use crate::components::hero::Hero;
 
 pub struct Root {}
 
@@ -30,7 +31,10 @@ impl Component for Root {
         html! {
             <div>
                 <NavBar />
-                <AppRouter render=render,redirect=redirect />
+                <div>
+                    <Hero />
+                    <AppRouter render=render,redirect=redirect />
+                </div>
             </div>
         }
     }
