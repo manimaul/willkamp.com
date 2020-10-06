@@ -26,3 +26,10 @@ wasm-pack build --target web --out-name wasm --out-dir ./static
 ```
 jacuzzi ./static 
 ```
+
+-----------------------
+
+#### Resources
+
+* https://rustwasm.github.io/docs/book/introduction.html
+* https://github.com/yewstack/yew

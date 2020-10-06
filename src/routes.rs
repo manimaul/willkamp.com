@@ -1,6 +1,6 @@
 use yew_router::{prelude::*, switch::Permissive};
 
-#[derive(Switch, Debug, Clone)]
+#[derive(Switch, Debug, Clone, PartialEq)]
 pub enum AppRoute {
     #[to = "/!"] Home,
     #[to = "/waymaker"] Waymaker,
@@ -11,4 +11,4 @@ pub enum AppRoute {
 }
 
 pub type AppRouter = Router<AppRoute>;
-// pub type AppAnchor = RouterAnchor<AppRoute>;
+pub type AppAnchor = RouterAnchor<AppRoute>;

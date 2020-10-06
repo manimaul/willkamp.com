@@ -30,11 +30,7 @@ impl Component for Root {
         });
         html! {
             <div>
-                <NavBar />
-                <div>
-                    <Hero />
-                    <AppRouter render=render,redirect=redirect />
-                </div>
+                <AppRouter render=render,redirect=redirect />
             </div>
         }
     }
@@ -44,22 +40,44 @@ impl Root {
     fn switch(route: AppRoute) -> Html {
         match route {
             AppRoute::Waymaker => html!{
-                <div>{"waymaker"}</div>
+                <div>
+                    <NavBar active=route />
+                    <Hero />
+                    {"waymakerz"}
+                </div>
             },
             AppRoute::Software => html!{
-                <div>{"software"}</div>
+                <div>
+                    <NavBar active=route />
+                    <Hero />
+                    {"software"}
+                </div>
             },
             AppRoute::MarineElectronics => html!{
-                <div>{"marine electronics"}</div>
+                <div>
+                    <NavBar active=route />
+                    <Hero />
+                    {"marine electronics"}
+                </div>
             },
             AppRoute::Home  => html! {
-                <div>{"home"}</div>
+                <div>
+                    <NavBar active=route />
+                    <Hero />
+                    {"home"}
+                </div>
             },
             AppRoute::About => html!{
-                <div>{"about"}</div>
+                <div>
+                    <NavBar active=route />
+                    <Hero />
+                    {"about"}
+                </div>
             },
             AppRoute::PageNotFound(_) => html!{
-                <div>{"ruh roh"}</div>
+                <div>
+                    <div>{"ruh roh"}</div>
+                </div>
             },
         }
     }

@@ -7,11 +7,11 @@ impl Component for Hero {
     type Message = ();
     type Properties = ();
 
-    fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
+    fn create(_props: Self::Properties, _link: ComponentLink<Self>) -> Self {
         Self {}
     }
 
-    fn update(&mut self, msg: Self::Message) -> bool {
+    fn update(&mut self, _msg: Self::Message) -> bool {
         true
     }
 
