@@ -26,8 +26,11 @@ impl Component for Hero {
          background-size: cover;\
          min-height: 200px";
         html! {
-            <div style={style}>
+            <div>
+                <div style={style}></div>
+                <br />
             </div>
+
         }
     }
 }

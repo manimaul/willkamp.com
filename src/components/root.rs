@@ -43,7 +43,7 @@ impl Root {
                 <div>
                     <NavBar active=route />
                     <Hero />
-                    {"waymakerz"}
+                    {"waymaker"}
                 </div>
             },
             AppRoute::Software => html!{
