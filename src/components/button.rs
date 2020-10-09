@@ -42,8 +42,6 @@ pub struct ButtonProps {
     pub button_size: ButtonSize,
     #[prop_or(false)]
     pub is_active: bool,
-    #[prop_or(true)]
-    pub enabled: bool,
     #[prop_or(false)]
     pub outline: bool,
 }
@@ -61,10 +59,10 @@ impl ButtonProps {
             ""
         };
         let size = match self.button_size {
-            ButtonSize::Large => "btn-lg",
+            ButtonSize::Large => " btn-lg",
             ButtonSize::Default => "",
-            ButtonSize::Small => "btn-sm",
-            ButtonSize::Block => "btn-block",
+            ButtonSize::Small => " btn-sm",
+            ButtonSize::Block => " btn-block",
         };
 
         match self.button_type {
@@ -109,5 +107,35 @@ impl Component for Button {
         html! {
             <button type={"button"} class={self.props.class()}>{self.props.text.as_str()}</button>
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::components::button::{ButtonProps, ButtonType, ButtonSize};
+
+    #[test]
+    fn props_class() {
+        let mut props = ButtonProps {
+            text: "".to_string(),
+            button_type: Default::default(),
+            button_size: Default::default(),
+            is_active: false,
+            outline: false
+        };
+
+        assert_eq!("btn btn-primary".to_string(), props.class());
+
+        props.button_type = ButtonType::Danger;
+        assert_eq!("btn btn-danger".to_string(), props.class());
+
+        props.is_active = true;
+        assert_eq!("btn btn-danger active".to_string(), props.class());
+
+        props.outline = true;
+        assert_eq!("btn btn-outline-danger active".to_string(), props.class());
+
+        props.button_size = ButtonSize::Large;
+        assert_eq!("btn btn-outline-danger btn-lg active".to_string(), props.class());
     }
 }

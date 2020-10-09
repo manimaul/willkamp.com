@@ -35,11 +35,9 @@ impl Component for PageHeader {
 
     fn view(&self) -> Html {
         html! {
-            <div class={"container"}>
-                <div class={"page-header"}>
-                    { self.title() }
-                    { self.props.children.clone() }
-                </div>
+            <div class={"page-header"}>
+                { self.title() }
+                { self.props.children.clone() }
             </div>
         }
     }

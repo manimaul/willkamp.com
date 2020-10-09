@@ -28,9 +28,7 @@ impl Component for Hero {
         html! {
             <div>
                 <div style={style}></div>
-                <br />
             </div>
-
         }
     }
 }

@@ -3,6 +3,7 @@ name = "willkamp-com"
 version = "0.1.0"
 authors = ["William Kamp <manimaul@gmail.com>"]
 edition = "2018"
+publish = false
 
 [lib]
 crate-type = ["cdylib", "rlib"]

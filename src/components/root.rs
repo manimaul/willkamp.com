@@ -29,13 +29,15 @@ impl Component for Root {
     }
 
     fn view(&self) -> Html {
-        let render = AppRouter::render(Root::switch);
+        let render = AppRouter::render(Root::content);
         let redirect = AppRouter::redirect(|route: Route| {
             AppRoute::PageNotFound(Permissive(Some(route.route)))
         });
         html! {
             <main>
-                <AppRouter render=render,redirect=redirect />
+                <div>
+                    <AppRouter render=render,redirect=redirect />
+                </div>
                 <Footer />
             </main>
         }
@@ -43,6 +45,18 @@ impl Component for Root {
 }
 
 impl Root {
+    fn content(route: AppRoute) -> Html {
+        let style = "padding-top: 16px;\
+        padding-bottom: 16px";
+        html! {
+            <div>
+                <NavBar active={route.clone()} />
+                <Hero />
+                <div class={"container"} style={style}>{Root::switch(route)}</div>
+            </div>
+        }
+    }
+
     fn switch(route: AppRoute) -> Html {
         match route {
             AppRoute::Waymaker => WaymakerPage::html(),
