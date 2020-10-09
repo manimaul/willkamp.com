@@ -32,6 +32,10 @@ impl Component for NavBar {
     }
 
     fn view(&self) -> Html {
+        let routes: Vec<Html> = AppRoute::nav_menu()
+            .into_iter()
+            .map(|r| self.nav_html(&r))
+            .collect();
         html! {
             <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,10 +44,7 @@ impl Component for NavBar {
              <a class="navbar-brand" href="/">{"William B. Kamp"}</a>
              <div class="collapse navbar-collapse" id="navbarToggler">
                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                 { self.nav_html("SV Waymaker", AppRoute::Waymaker) }
-                 { self.nav_html("Software", AppRoute::Software) }
-                 { self.nav_html("Marine Electronics", AppRoute::MarineElectronics) }
-                 { self.nav_html("About Me", AppRoute::About) }
+                 { routes }
                </ul>
              </div>
            </nav>
@@ -53,13 +54,13 @@ impl Component for NavBar {
 }
 
 impl NavBar {
-    fn nav_html(&self, name: &str, route: AppRoute) -> Html {
-        let class = if self.props.active == route {
+    fn nav_html(&self, route: &AppRoute) -> Html {
+        let class = if &self.props.active == route {
             "nav-item active"
         } else {
             "nav-item"
         };
-
+        let name = route.display_name();
         html! {
           <li class=class>
             <AppAnchor classes={"nav-link"} route={route}>

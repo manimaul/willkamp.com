@@ -1,6 +1,7 @@
 pub mod root;
-mod nav_bar;
-mod hero;
-mod page_header;
+pub(crate) mod nav_bar;
+pub(crate) mod hero;
+pub(crate) mod page_header;
 mod badge;
 mod button;
+mod footer;

@@ -2,6 +2,7 @@
 
 mod routes;
 mod components;
+mod pages;
 
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;

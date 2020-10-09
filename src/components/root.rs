@@ -4,6 +4,10 @@ use yew::prelude::*;
 use yew_router::{route::Route, switch::Permissive};
 use crate::components::nav_bar::NavBar;
 use crate::components::hero::Hero;
+use crate::components::page_header::PageHeader;
+use crate::routes::AppRoute::Waymaker;
+use crate::pages;
+use crate::pages::waymaker::WaymakerPage;
 
 pub struct Root {}
 
@@ -39,13 +43,7 @@ impl Component for Root {
 impl Root {
     fn switch(route: AppRoute) -> Html {
         match route {
-            AppRoute::Waymaker => html!{
-                <div>
-                    <NavBar active=route />
-                    <Hero />
-                    {"waymaker"}
-                </div>
-            },
+            AppRoute::Waymaker => WaymakerPage::html(),
             AppRoute::Software => html!{
                 <div>
                     <NavBar active=route />
