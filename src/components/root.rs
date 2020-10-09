@@ -5,9 +5,10 @@ use yew_router::{route::Route, switch::Permissive};
 use crate::components::nav_bar::NavBar;
 use crate::components::hero::Hero;
 use crate::components::page_header::PageHeader;
-use crate::routes::AppRoute::Waymaker;
+use crate::routes::AppRoute::{Waymaker, MarineElectronics};
 use crate::pages;
-use crate::pages::waymaker::WaymakerPage;
+use crate::pages::pages::{WaymakerPage, SoftwarePage, MarineElectronicsPage, HomePage, AboutPage};
+use crate::components::footer::Footer;
 
 pub struct Root {}
 
@@ -33,9 +34,10 @@ impl Component for Root {
             AppRoute::PageNotFound(Permissive(Some(route.route)))
         });
         html! {
-            <div>
+            <main>
                 <AppRouter render=render,redirect=redirect />
-            </div>
+                <Footer />
+            </main>
         }
     }
 }
@@ -44,35 +46,11 @@ impl Root {
     fn switch(route: AppRoute) -> Html {
         match route {
             AppRoute::Waymaker => WaymakerPage::html(),
-            AppRoute::Software => html!{
-                <div>
-                    <NavBar active=route />
-                    <Hero />
-                    {"software"}
-                </div>
-            },
-            AppRoute::MarineElectronics => html!{
-                <div>
-                    <NavBar active=route />
-                    <Hero />
-                    {"marine electronics"}
-                </div>
-            },
-            AppRoute::Home  => html! {
-                <div>
-                    <NavBar active=route />
-                    <Hero />
-                    {"home"}
-                </div>
-            },
-            AppRoute::About => html!{
-                <div>
-                    <NavBar active=route />
-                    <Hero />
-                    {"about"}
-                </div>
-            },
-            AppRoute::PageNotFound(_) => html!{
+            AppRoute::Software => SoftwarePage::html(),
+            AppRoute::MarineElectronics => MarineElectronicsPage::html(),
+            AppRoute::Home => HomePage::html(),
+            AppRoute::About => AboutPage::html(),
+            AppRoute::PageNotFound(_) => html! {
                 <div>
                     <div>{"ruh roh"}</div>
                 </div>

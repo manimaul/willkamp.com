@@ -1,1 +1,1 @@
-pub(crate) mod waymaker;
+pub(crate) mod pages;

@@ -4,4 +4,4 @@ pub(crate) mod hero;
 pub(crate) mod page_header;
 mod badge;
 mod button;
-mod footer;
+pub(crate) mod footer;
