@@ -29,7 +29,7 @@ impl Component for Footer {
                 <div class={"container"}>
                 <p class={"text-muted"}>{"Author: William B. Kamp"}<br />
                 <a class={"text-muted"} href={"mailto:manimaul@gmail.com"}>{"manimaul@gmail.com"}</a></p>
-                <span class={"text-muted"}>{"Built with ♥️ Rust 🦀 and Web Assembly 🕸"}</span>
+                <span class={"text-muted"}>{"Built Rust 🦀 and Web Assembly 🕸"}</span>
                 </div>
             </footer>
         }

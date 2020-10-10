@@ -7,7 +7,7 @@ use crate::components::hero::Hero;
 use crate::components::page_header::PageHeader;
 use crate::routes::AppRoute::{Waymaker, MarineElectronics};
 use crate::pages;
-use crate::pages::pages::{WaymakerPage, SoftwarePage, MarineElectronicsPage, HomePage, AboutPage};
+use crate::pages::{WaymakerPage, SoftwarePage, MarineElectronicsPage, HomePage, AboutPage};
 use crate::components::footer::Footer;
 
 pub struct Root {}

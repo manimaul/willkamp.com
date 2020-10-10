@@ -1,8 +1,8 @@
 use yew::Html;
-use crate::components::page_header::PageHeader;
+use crate::components::PageHeader;
 use yew::prelude::*;
 use crate::routes::AppRoute;
-use crate::components::footer::Footer;
+use crate::components::Footer;
 
 pub struct WaymakerPage {}
 pub struct SoftwarePage {}
@@ -11,6 +11,7 @@ pub struct HomePage {}
 pub struct AboutPage {}
 
 impl WaymakerPage {
+
     pub fn html() -> Html {
         html!{
             <div>

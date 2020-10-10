@@ -3,10 +3,11 @@
 mod routes;
 mod components;
 mod pages;
+mod bootstrap;
 
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
-use crate::components::root::Root;
+use crate::components::Root;
 
 #[wasm_bindgen(start)]
 pub fn run_app() {
