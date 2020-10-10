@@ -1,5 +1,6 @@
 use yew::{Component, ComponentLink, Html};
 use yew::prelude::*;
+use crate::bootstrap::traits::ComponentDemo;
 
 #[derive(Clone, PartialEq)]
 pub enum BadgeType {
@@ -59,5 +60,48 @@ impl Component for Badge {
         html! {
             <span class={self.props.badge_type.class()}>{self.props.label.as_str()}</span>
         }
+    }
+}
+
+impl ComponentDemo<Badge> for Badge {
+    fn demo() -> Vec<Badge> {
+        vec![
+            Badge {
+                props: BadgeProps {
+                    label: "Default".to_string(),
+                    badge_type: BadgeType::Default
+                }
+            },
+            Badge {
+                props: BadgeProps {
+                    label: "Primary".to_string(),
+                    badge_type: BadgeType::Primary
+                }
+            },
+            Badge {
+                props: BadgeProps {
+                    label: "Success".to_string(),
+                    badge_type: BadgeType::Success
+                }
+            },
+            Badge {
+                props: BadgeProps {
+                    label: "Info".to_string(),
+                    badge_type: BadgeType::Info
+                }
+            },
+            Badge {
+                props: BadgeProps {
+                    label: "Warning".to_string(),
+                    badge_type: BadgeType::Warning
+                }
+            },
+            Badge {
+                props: BadgeProps {
+                    label: "Danger".to_string(),
+                    badge_type: BadgeType::Danger
+                }
+            },
+        ]
     }
 }

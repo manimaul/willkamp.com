@@ -9,6 +9,7 @@ use crate::routes::AppRoute::{Waymaker, MarineElectronics};
 use crate::pages;
 use crate::pages::{WaymakerPage, SoftwarePage, MarineElectronicsPage, HomePage, AboutPage};
 use crate::components::footer::Footer;
+use crate::bootstrap::Planetarium;
 
 pub struct Root {}
 
@@ -64,6 +65,7 @@ impl Root {
             AppRoute::MarineElectronics => MarineElectronicsPage::html(),
             AppRoute::Home => HomePage::html(),
             AppRoute::About => AboutPage::html(),
+            AppRoute::Planet => Planetarium{}.view(),
             AppRoute::PageNotFound(_) => html! {
                 <div>
                     <div>{"ruh roh"}</div>

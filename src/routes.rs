@@ -7,6 +7,7 @@ pub enum AppRoute {
     #[to = "/software"] Software,
     #[to = "/emarine"] MarineElectronics,
     #[to = "/about"] About,
+    #[to = "/planet"] Planet,
     #[to = "/page-not-found"] PageNotFound(Permissive<String>),
 }
 
@@ -18,7 +19,7 @@ impl AppRoute {
             AppRoute::Software => "Software",
             AppRoute::MarineElectronics => "Marine Electronics",
             AppRoute::About => "About Me",
-            AppRoute::PageNotFound(_) => "Ruh Roh",
+            _ => "Unknown",
         }
     }
 
