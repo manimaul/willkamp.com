@@ -2,7 +2,6 @@ mod root;
 mod nav_bar;
 mod hero;
 mod page_header;
-mod button;
 mod footer;
 
 pub type Footer = footer::Footer;

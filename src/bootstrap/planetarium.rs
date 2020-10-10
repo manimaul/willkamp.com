@@ -3,6 +3,7 @@ use yew::macros::html;
 use std::sync::Mutex;
 use crate::bootstrap::traits::ComponentDemo;
 use crate::bootstrap::badge::Badge;
+use crate::bootstrap::Button;
 
 pub struct Planetarium {}
 
@@ -24,13 +25,19 @@ impl Component for Planetarium {
 
     fn view(&self) -> Html {
         let badge = Badge::demo_html();
+        let button = Button::demo_html();
         html! {
             <div>
                 <h1>{"Planetarium Of Components"}</h1>
+
                 <h6>{"bootstrap::Badge"}</h6>
                 { badge }
-                // <h6>{"bootstrap::Button"}</h6>
-                // { button }
+                <br />
+
+                <h6>{"bootstrap::Button"}</h6>
+                { button }
+                <br />
+
             </div>
         }
     }

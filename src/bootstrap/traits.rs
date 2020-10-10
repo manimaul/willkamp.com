@@ -1,17 +1,17 @@
 use yew::{Component, Html};
 use yew::macros::html;
 
-pub trait ComponentDemo<T: Component> {
-    fn demo() -> Vec<T>;
+pub trait ComponentDemo: Component {
+    fn demo() -> Vec<Self>;
 
     fn demo_html() -> Html {
         let components: Vec<Html> = Self::demo()
             .into_iter()
-            .map(|badge|
+            .map(|c|
                 html! {
                     <div>
-                        { badge.view() }
-                        <br />
+                        { c.view() }
+                        <br /><br />
                     </div>
                 }
             )

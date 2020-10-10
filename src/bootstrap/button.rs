@@ -1,7 +1,9 @@
 use yew::{Component, ComponentLink, Html};
 use yew::prelude::*;
+use crate::bootstrap::traits::ComponentDemo;
+use strum::IntoEnumIterator;
 
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, EnumIter, Display, Debug)]
 pub enum ButtonType {
     Primary,
     Secondary,
@@ -19,7 +21,7 @@ impl Default for ButtonType {
     }
 }
 
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, EnumIter, Display, Debug)]
 pub enum ButtonSize {
     Large,
     Default,
@@ -110,9 +112,36 @@ impl Component for Button {
     }
 }
 
+impl Button {
+    fn demo(outline: bool) -> Vec<Button> {
+        ButtonType::iter().map(|t| {
+            ButtonSize::iter().map(move |s| {
+                Button {
+                    props: ButtonProps {
+                        text: format!("{:?} {:?}",t, s),
+                        button_type: t.clone(),
+                        button_size: s.clone(),
+                        is_active: false,
+                        outline
+                    }
+                }
+            })
+        }).flatten().collect()
+    }
+}
+
+impl ComponentDemo for Button {
+
+    fn demo() -> Vec<Button> {
+        let mut r = Button::demo(false);
+            r.extend(Button::demo(true));
+        r
+    }
+}
+
 #[cfg(test)]
 mod tests {
-    use crate::components::button::{ButtonProps, ButtonType, ButtonSize};
+    use crate::bootstrap::button::{ButtonProps, ButtonType, ButtonSize};
 
     #[test]
     fn props_class() {

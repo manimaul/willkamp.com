@@ -63,7 +63,7 @@ impl Component for Badge {
     }
 }
 
-impl ComponentDemo<Badge> for Badge {
+impl ComponentDemo for Badge {
     fn demo() -> Vec<Badge> {
         vec![
             Badge {
